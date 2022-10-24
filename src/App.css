@@ -1,7 +1,13 @@
-.App {
-  text-align: center;
+:root{
+  --bg-black:#2C2C2C;
+  --bg-whities:#F3F9FD;
+  --bg-white:#ffffff;
+  --text-yellow:#FAB606;
+  --text-green:#5EBB3E;
+  --text-gray:#8F908F;
+  --text-orange:#F44C0A;
+  --text-white:#ffffff;
 }
-
 .App-logo {
   height: 40vmin;
   pointer-events: none;
