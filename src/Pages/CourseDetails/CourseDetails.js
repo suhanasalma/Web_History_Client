@@ -1,4 +1,11 @@
 import React from 'react';
+import {
+  FaBook,
+  FaQuestionCircle,
+  FaStopwatch,
+  FaLanguage,
+  FaUserFriends,
+} from "react-icons/fa";
 import { useLoaderData } from 'react-router-dom';
 import LeftSide from '../LeftSide/LeftSide';
 
@@ -16,13 +23,15 @@ const CourseDetails = () => {
      teacher_info,
    } = fullDetails;
    return (
-     <section>
-       <div className="course-cotainer mb-20"></div>
-       <div className="flex items-start w-9/12 m-auto">
+     <section className="">
+       <div className="course-cotainer mb-20">
+         <h1 className="text-white font-bold text-4xl">{name}</h1>
+       </div>
+       <div className="flex sm:flex-col xl:flex-row items-start justify-around w-5/6 m-auto">
          <div className="">
            <section className="">
              <article className="flex justify-between items-center mb-10 ">
-               <div className="flex items-center gap-10">
+               <div className="flex sm:flex-col lg:flex-row items-center gap-10">
                  <div className="flex items-center gap-3">
                    <img
                      src={teacher_info[0].teacher_img}
@@ -39,16 +48,18 @@ const CourseDetails = () => {
                    <p>{category_name}</p>
                  </div>
                </div>
+
                <div>
                  <p className="price text-2xl font-bold">{price}</p>
                </div>
+               <button>Get Premium Acces</button>
              </article>
              <article className="mb-10">
-               <img src={img} alt="" className="w-full h-full object-cover" />
+               <img src={img} alt="" className="w-full" />
              </article>
            </section>
-           <section className="flex justify-between p-10 border">
-             <article className="w-6/12 ">
+           <section className="flex justify-between border p-3 sm:flex-col lg:flex-row mb-10">
+             <article className="sm:w-full lg:w-7/12 mr-20">
                <div className="mb-10">
                  <h1>COURSE DESCRIPTION</h1>
                  <p>{course_desc}</p>
@@ -60,32 +71,45 @@ const CourseDetails = () => {
                  ))}
                </div>
              </article>
-             <article className="justify-items-end">
-               <h1>COURSE FEATURES</h1>
-               <div className="flex justify-between items-center">
-                 <p>lecture</p>
+             <article className="sm:w-9/12 md:w-6/12 lg:w-3/12">
+               <h1 className="mb-3">COURSE FEATURES</h1>
+               <div className="flex justify-between items-center mb-3">
+                 <p className="flex gap-2 items-center ">
+                   <FaBook /> lecture
+                 </p>
                  <p>{course_feature[0].lecture}</p>
                </div>
-               <div className="flex justify-between items-center">
-                 <p>Quize</p>
+               <div className="flex justify-between items-center mb-3">
+                 <p className="flex gap-2 items-center ">
+                   <FaQuestionCircle /> Quize
+                 </p>
                  <p>{course_feature[0].quize}</p>
                </div>
-               <div className="flex justify-between items-center">
-                 <p>Duration</p>
+               <div className="flex justify-between items-center mb-3">
+                 <p className="flex gap-2 items-center ">
+                   <FaStopwatch /> Duration
+                 </p>
                  <p>{course_feature[0].duration}</p>
                </div>
-               <div className="flex justify-between items-center">
-                 <p>Language</p>
+               <div className="flex justify-between items-center  mb-3">
+                 <p className="flex gap-2 items-center">
+                   {" "}
+                   <FaLanguage /> Language
+                 </p>
                  <p>{course_feature[0].language}</p>
                </div>
                <div className="flex justify-between items-center">
-                 <p>Students</p>
+                 <p className="flex gap-2 items-center">
+                   {" "}
+                   <FaUserFriends />
+                   Students
+                 </p>
                  <p>{course_feature[0].student}</p>
                </div>
              </article>
            </section>
          </div>
-         <div className="w-full ml-20">
+         <div className="w-full lg:ml-20 ">
            <LeftSide />
          </div>
        </div>
