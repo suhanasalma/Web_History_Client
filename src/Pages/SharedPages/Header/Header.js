@@ -70,9 +70,7 @@ const Header = () => {
                    <Link to="/faq">FAQ</Link>
                  </li>
                  <li>
-                   <Link to="/courses/08" className="justify-between">
-                     Courses
-                   </Link>
+                   <Link to="/allCourse">Courses</Link>
                  </li>
                  <li>
                    <Link to="/blogs">BLOG</Link>
@@ -100,7 +98,7 @@ const Header = () => {
            <div className="navbar-center hidden lg:flex">
              <ul className="menu menu-horizontal p-0">
                <li>
-                 <Link to="/courses">Courses</Link>
+                 <Link to="/allCourse">Courses</Link>
                </li>
                <li>
                  <Link to="/faq">FAQ</Link>
@@ -108,6 +106,9 @@ const Header = () => {
 
                <li>
                  <Link to="/blogs">BLOG</Link>
+               </li>
+               <li>
+                 <Link to="/carts">Cart</Link>
                </li>
              </ul>
            </div>

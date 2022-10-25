@@ -14,7 +14,7 @@ const LeftSide = () => {
      <div>
        <h1>Course Categories</h1>
        {links.map((link) => (
-         <Link to={`/courses/${link.id}`}>
+         <Link key={link.id} to={`/courses/${link.id}`}>
            <li>{link.name}</li>
          </Link>
        ))}

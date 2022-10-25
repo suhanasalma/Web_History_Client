@@ -1,6 +1,8 @@
 
 import Main from "../../Layouts/Main";
+import AllCourse from "../../Pages/AllCourse/AllCourse";
 import Blogs from "../../Pages/Blogs/Blogs";
+import Carts from "../../Pages/Carts/Carts";
 import CourseDetails from "../../Pages/CourseDetails/CourseDetails";
 import Courses from "../../Pages/Courses/Courses";
 import Faq from "../../Pages/FAQ/Faq";
@@ -23,12 +25,22 @@ export const router = createBrowserRouter([
         element: <Home></Home>,
       },
       {
+        path: "/allCourse",
+        loader: () =>
+          fetch("https://web-history-server-side.vercel.app/allCourse"),
+        element: <AllCourse />,
+      },
+      {
         path: "/login",
         element: <Login />,
       },
       {
         path: "/register",
         element: <Register />,
+      },
+      {
+        path: "/carts",
+        element: <Carts/>,
       },
       {
         path: "/courses/:id",

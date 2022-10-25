@@ -15,7 +15,6 @@ const CourseDetails = () => {
      course_feature,
      teacher_info,
    } = fullDetails;
-   console.log(course_feature[0].lecture);
    return (
      <section>
        <div className="course-cotainer mb-20"></div>

@@ -13,7 +13,7 @@ const PopularCourse = () => {
    return (
      <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">
        {courses.map((course) => (
-         <Link to={`/course-details/${course.id}`}>
+         <Link key={course.id} to={`/course-details/${course.id}`}>
            <div className="card sm:m-auto w-64 h-96 bg-base-100 shadow-xl">
              <figure>
                <img src={course.img} className='object-cover' />

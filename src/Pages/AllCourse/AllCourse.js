@@ -1,18 +1,15 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
-import CourseDisplay from '../CourseDisplay/CourseDisplay';
+import CourseDisplay from "../CourseDisplay/CourseDisplay";
 
-import LeftSide from '../LeftSide/LeftSide';
-import './Course.css'
+import LeftSide from "../LeftSide/LeftSide";
 
-
-const Courses = () => {
-   const courses  =  useLoaderData()
-
+const AllCourse = () => {
+   const courses = useLoaderData();
    return (
      <div>
        <div className="course-cotainer">
-        <h1 className='text-white'>Hello</h1>
+         <h1 className="text-white">Hello</h1>
        </div>
        <div className="flex my-20 p-5 justify-around">
          <section className="grid grid-cols-3 gap-10">
@@ -28,4 +25,4 @@ const Courses = () => {
    );
 };
 
-export default Courses;
+export default AllCourse;

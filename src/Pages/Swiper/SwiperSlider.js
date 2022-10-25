@@ -50,7 +50,7 @@ const SwiperSlider = () => {
          }}
        >
          {allCategories.map((category) => (
-           <SwiperSlide>
+           <SwiperSlide key={category.id}>
              <Link to={`/courses/${category.id}`}>
                <div className="card w-40 h-40 rounded-full bg-base-100 shadow-xl image-full">
                  <figure>

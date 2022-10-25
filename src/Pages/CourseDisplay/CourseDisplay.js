@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom';
 
 const CourseDisplay = ({course}) => {
    const {name,img,id} = course
-  //  console.log(course.course_feature)
-  console.log(id)
+
    return (
      <div>
        <Link to={`/course-details/${id}`}>
