@@ -5,7 +5,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/bundle";
 import "swiper/css/navigation";
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 
 
 
@@ -20,7 +20,6 @@ const SwiperSlider = () => {
          }}
          grabCursor={true}
          loop={true}
-
          modules={[Pagination]}
          className="mySwiper"
          breakpoints={{
@@ -48,22 +47,16 @@ const SwiperSlider = () => {
        >
          {allCategories.map((category) => (
            <SwiperSlide>
-             {/* <div>
-               <h1>{category.name}</h1>
-               <img
-                 src={category.img}
-                 className="h-36 w-36 rounded-full"
-                 alt=""
-               />
-             </div> */}
-             <div className="card w-40 h-40 rounded-full bg-base-100 shadow-xl image-full">
-               <figure>
-                 <img src={category.img} />
-               </figure>
-               <div className="card-body">
-                 <h2 className="card-title">{category.name}</h2>
+             <Link to={`courses/${category.id}`}>
+               <div className="card w-40 h-40 rounded-full bg-base-100 shadow-xl image-full">
+                 <figure>
+                   <img src={category.img} />
+                 </figure>
+                 <div className="card-body">
+                   <h2 className="card-title">{category.name}</h2>
+                 </div>
                </div>
-             </div>
+             </Link>
            </SwiperSlide>
          ))}
        </Swiper>
