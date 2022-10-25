@@ -6,3 +6,16 @@
    background-size: cover;
    color: var(--text-white);
 }
+
+.user-count{
+   background-image:linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ),url(../../Assets/secondBg.jpg);
+   height: 60vh;
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+   background-attachment: fixed;
+}
+
+.text{
+   color: var(--text-orange);
+}

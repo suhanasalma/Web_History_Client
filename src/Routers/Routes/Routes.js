@@ -7,7 +7,6 @@ import Faq from "../../Pages/FAQ/Faq";
 import Home from "../../Pages/Home/Home";
 import Login from "../../Pages/Login/Login";
 import Register from "../../Pages/Register/Register";
-import RightSide from "../../Pages/RightSide/RightSide";
 import SwiperSlider from "../../Pages/Swiper/SwiperSlider";
 
 const { createBrowserRouter } = require("react-router-dom");

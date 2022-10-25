@@ -8,6 +8,9 @@
   --text-orange:#F44C0A;
   --text-white:#ffffff;
 }
+.price{
+  color: var(--text-orange);
+}
 /* .App-logo {
   height: 40vmin;
   pointer-events: none;
