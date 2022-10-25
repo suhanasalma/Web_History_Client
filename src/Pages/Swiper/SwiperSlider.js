@@ -6,12 +6,16 @@ import "swiper/css/pagination";
 import "swiper/css/bundle";
 import "swiper/css/navigation";
 import { Link, useLoaderData } from 'react-router-dom';
+import { useState } from 'react';
+import { useEffect } from 'react';
 
 
 
 
 const SwiperSlider = () => {
+
    const allCategories = useLoaderData()
+    //  console.log(allCategories);
    return (
      <div>
        <Swiper
@@ -47,7 +51,7 @@ const SwiperSlider = () => {
        >
          {allCategories.map((category) => (
            <SwiperSlide>
-             <Link to={`courses/${category.id}`}>
+             <Link to={`/courses/${category.id}`}>
                <div className="card w-40 h-40 rounded-full bg-base-100 shadow-xl image-full">
                  <figure>
                    <img src={category.img} />

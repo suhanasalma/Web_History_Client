@@ -2,7 +2,7 @@ import React from 'react';
 
 const CourseDisplay = ({course}) => {
    const {name,img} = course
-   console.log(course.course_feature)
+  //  console.log(course.course_feature)
    return (
      <div>
        <div className="card w-64 h-96 bg-base-100 shadow-xl">
