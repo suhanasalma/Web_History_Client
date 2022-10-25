@@ -11,12 +11,12 @@ const PopularCourse = () => {
        .then((data) => setCourses(data));
    }, []);
    return (
-     <div className="grid grid-cols-4 gap-10">
+     <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">
        {courses.map((course) => (
          <Link to={`/course-details/${course.id}`}>
-           <div className="card w-64 h-96 bg-base-100 shadow-xl">
+           <div className="card sm:m-auto w-64 h-96 bg-base-100 shadow-xl">
              <figure>
-               <img src={course.img} alt="Shoes" />
+               <img src={course.img} className='object-cover' />
              </figure>
              <div className="card-body">
                <h2 className="card-title">{course.name}</h2>
