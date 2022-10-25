@@ -12,10 +12,10 @@ const Courses = () => {
    return (
      <div>
        <div className="course-cotainer">
-        <h1 className='text-white'>Hello</h1>
+         <h1 className="text-white">Hello</h1>
        </div>
-       <div className="flex my-20 p-5 justify-around">
-         <section className="grid grid-cols-3 gap-10">
+       <div className="flex sm:flex-col md:flex-row   my-20 p-5 justify-around">
+         <section className="sm:m-auto md:m-0 grid lg:grid-cols-3 md:grid-cols-2 gap-10">
            {courses.map((course) => (
              <CourseDisplay course={course} key={course.id}></CourseDisplay>
            ))}
