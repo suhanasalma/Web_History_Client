@@ -22,6 +22,18 @@ const CourseDetails = () => {
      course_feature,
      teacher_info,
    } = fullDetails;
+
+
+   const addToCart = (e)=>{
+    console.log(e.target.innerText);
+    e.target.innerText = 'View Cart'
+    
+   }
+
+
+
+
+
    return (
      <section className="">
        <div className="course-cotainer mb-20">
@@ -49,10 +61,11 @@ const CourseDetails = () => {
                  </div>
                </div>
 
-               <div>
+               <div className="flex gap-4">
                  <p className="price text-2xl font-bold">{price}</p>
+                 <button>Get Premium Acces</button>
+                 <button onClick={addToCart}>Add to Cart</button>
                </div>
-               <button>Get Premium Acces</button>
              </article>
              <article className="mb-10">
                <img src={img} alt="" className="w-full" />

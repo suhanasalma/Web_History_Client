@@ -30,8 +30,8 @@ const LeftSide = () => {
            </Link>
          ))}
        </div>
-       <div className="my-20 border sm:m-auto lg:m-0 w-10/12 p-5">
-         <div className="">
+       <div className="my-10">
+         <div className=" border sm:m-auto lg:m-0 w-10/12 p-5">
            <h1>Latest Course</h1>
            {courses.map((course) => (
              <Link key={course.id} to={`/course-details/${course.id}`}>

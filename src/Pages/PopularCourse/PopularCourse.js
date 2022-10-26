@@ -2,6 +2,7 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { Link } from "react-router-dom";
+import CourseDisplay from "../CourseDisplay/CourseDisplay";
 
 const PopularCourse = () => {
    const [courses, setCourses] = useState([]);
@@ -13,21 +14,7 @@ const PopularCourse = () => {
    return (
      <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">
        {courses.map((course) => (
-         <Link key={course.id} to={`/course-details/${course.id}`}>
-           <div className="card sm:m-auto w-64 h-96 bg-base-100 shadow-xl">
-             <figure>
-               <img src={course.img} className='object-cover' />
-             </figure>
-             <div className="card-body">
-               <h2 className="card-title">{course.name}</h2>
-             </div>
-             <div className="">
-               <div></div>
-               <div></div>
-               <div></div>
-             </div>
-           </div>
-         </Link>
+          <CourseDisplay course={course} key={course.id}></CourseDisplay>
        ))}
      </div>
    );
