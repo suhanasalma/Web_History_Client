@@ -75,6 +75,9 @@ const Header = () => {
                  <li>
                    <Link to="/blogs">BLOG</Link>
                  </li>
+                 <li>
+                   <Link to="/carts">Cart</Link>
+                 </li>
                </ul>
              </div>
              <Link to="/" className=" flex items-center">

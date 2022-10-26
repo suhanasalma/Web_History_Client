@@ -45,7 +45,7 @@ const Carts = () => {
         </h1>
       </div>
 
-      <article className="flex sm:flex-col md:flex-row justify-around items-center">
+      <article className="flex sm:flex-col md:flex-row justify-around items-center p-5">
         <div className="">
           {carts.map((cart) => (
             <Cart removeItem={removeItem} cart={cart} key={cart.id}></Cart>
@@ -60,7 +60,7 @@ const Carts = () => {
             </button>
           </div>
         </div>
-        <div>
+        <div className="md:sticky top-0">
           <LeftSide />
         </div>
       </article>

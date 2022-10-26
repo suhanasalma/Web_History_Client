@@ -1,6 +1,7 @@
 
 import Main from "../../Layouts/Main";
 import AllCourse from "../../Pages/AllCourse/AllCourse";
+import BlogDetails from "../../Pages/BlogDetails/BlogDetails";
 import Blogs from "../../Pages/Blogs/Blogs";
 import Carts from "../../Pages/Carts/Carts";
 import CourseDetails from "../../Pages/CourseDetails/CourseDetails";
@@ -40,8 +41,9 @@ export const router = createBrowserRouter([
       },
       {
         path: "/carts",
-        loader:()=>fetch('https://web-history-server-side.vercel.app/allCourse'),
-        element: <Carts/>,
+        loader: () =>
+          fetch("https://web-history-server-side.vercel.app/allCourse"),
+        element: <Carts />,
       },
       {
         path: "/courses/:id",
@@ -61,7 +63,16 @@ export const router = createBrowserRouter([
       },
       {
         path: "/blogs",
+        loader: () => fetch("https://web-history-server-side.vercel.app/blogs"),
         element: <Blogs />,
+      },
+      {
+        path: "/blogs/:id",
+        loader: ({ params }) =>
+          fetch(
+            `https://web-history-server-side.vercel.app/blogs/${params.id}`
+          ),
+        element: <BlogDetails/>,
       },
       {
         path: "/faq",

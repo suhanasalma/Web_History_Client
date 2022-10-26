@@ -35,9 +35,9 @@ const LeftSide = () => {
            <h1>Latest Course</h1>
            {courses.map((course) => (
              <Link key={course.id} to={`/course-details/${course.id}`}>
-               <div className="flex mb-3 gap-4">
+               <div className="flex gap-4 mb-3">
                  <img src={course.img} className="w-20 object-cover " alt="" />
-                 <div>
+                 <div className=''>
                    <p>{course.name}</p>
                    <p>{course.price}</p>
                  </div>

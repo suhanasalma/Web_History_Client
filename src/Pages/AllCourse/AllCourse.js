@@ -19,7 +19,7 @@ const AllCourse = () => {
              <CourseDisplay course={course} key={course.id}></CourseDisplay>
            ))}
          </section>
-         <section>
+         <section className="">
            <LeftSide />
          </section>
        </div>

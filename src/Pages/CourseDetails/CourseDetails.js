@@ -37,7 +37,7 @@ const CourseDetails = () => {
            {name}
          </h1>
        </div>
-       <div className="flex sm:flex-col xl:flex-row items-start justify-around w-5/6 m-auto">
+       <div className="flex sm:flex-col lg:flex-row items-start justify-around w-5/6 m-auto">
          <div className="">
            <section className="">
              <article className="flex justify-between items-center mb-10 ">
@@ -120,7 +120,7 @@ const CourseDetails = () => {
              </article>
            </section>
          </div>
-         <div className="w-full lg:ml-20 ">
+         <div className="w-full lg:ml-20 lg:sticky top-0">
            <LeftSide />
          </div>
        </div>

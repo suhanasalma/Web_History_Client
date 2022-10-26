@@ -22,9 +22,9 @@ const Courses = () => {
              <CourseDisplay course={course} key={course.id}></CourseDisplay>
            ))}
          </section>
-         <section>
+         <div className="lg:sticky top-0">
            <LeftSide />
-         </section>
+         </div>
        </div>
      </div>
    );
