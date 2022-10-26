@@ -8,7 +8,8 @@ import {
   FaUserFriends,
 } from "react-icons/fa";
 import { useLoaderData } from 'react-router-dom';
-import { ContextDetails } from '../../Context/ContextProvide';
+import { addToCart } from "../../LocalStorage/LocalStorage";
+
 import LeftSide from '../LeftSide/LeftSide';
 
 const CourseDetails = () => {
@@ -25,8 +26,12 @@ const CourseDetails = () => {
      teacher_info,
    } = fullDetails;
 
+   const addToLS = ()=>{
+    addToCart(fullDetails.id)
+   }
 
-   const {addToCart} = useContext(ContextDetails)
+
+  
 
 
 
@@ -64,7 +69,7 @@ const CourseDetails = () => {
                <div className="flex gap-4">
                  <p className="price text-2xl font-bold">{price}</p>
                  <button>Get Premium Acces</button>
-                 <button onClick={addToCart}>Add to Cart</button>
+                 <button onClick={addToLS}>Add to Cart</button>
                </div>
              </article>
              <article className="mb-10">

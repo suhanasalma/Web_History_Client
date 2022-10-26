@@ -2,14 +2,13 @@
 import React , { createContext } from 'react';
 
 
+
 export const ContextDetails = createContext();
 
 const ContextProvide = ({ children }) => {
-   const addToCart = (e)=>{
-      e.target.innerText = 'View Cart'
 
-   }
-   const allInfo = { addToCart };
+   
+   const allInfo = {  };
 
   return <div>
       <ContextDetails.Provider value={allInfo}>

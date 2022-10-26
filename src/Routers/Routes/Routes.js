@@ -40,6 +40,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/carts",
+        loader:()=>fetch('https://web-history-server-side.vercel.app/allCourse'),
         element: <Carts/>,
       },
       {
