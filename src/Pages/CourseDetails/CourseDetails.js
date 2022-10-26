@@ -30,13 +30,6 @@ const CourseDetails = () => {
     addToCart(fullDetails.id)
    }
 
-
-  
-
-
-
-
-
    return (
      <section className="">
        <div className="course-cotainer mb-20">

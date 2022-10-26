@@ -25,4 +25,16 @@ const savedCart = () => {
 };
 
 
-export {addToCart, savedCart}
+const deletefromLocalStorage = (id)=>{
+   const CourseCart = localStorage.getItem("cart");
+   if (CourseCart) {
+     const cartLS = JSON.parse(CourseCart);
+     if (id in cartLS) {
+       delete cartLS[id];
+       localStorage.setItem("cart", JSON.stringify(cartLS));
+     }
+   }
+}
+
+
+export { addToCart, savedCart, deletefromLocalStorage };
