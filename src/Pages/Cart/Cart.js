@@ -6,19 +6,19 @@ const Cart = ({cart,removeItem}) => {
 
    return (
      <div className="">
-       <Link to={`/course-details/${id}`}>
-         <div className="border p-3 flex sm:flex-col md:flex-row justify-between items-center mb-3 gap-4">
+       <div className="border p-3 flex justify-between items-center mb-3 gap-4">
+         <Link to={`/course-details/${id}`}>
            <img src={cart.img} className="w-20 object-cover " alt="" />
-           <p className="">{name}</p>
-           <p className="">{price}</p>
-           <button
-             onClick={() => removeItem(id)}
-             className="text-xl text-red-800"
-           >
-             <FaTimesCircle />
-           </button>
-         </div>
-       </Link>
+         </Link>
+         <p className="">{name}</p>
+         <p className="">{price} $</p>
+         <button
+           onClick={() => removeItem(id)}
+           className="text-xl text-red-800"
+         >
+           <FaTimesCircle />
+         </button>
+       </div>
      </div>
    );
 };
