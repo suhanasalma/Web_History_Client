@@ -1,4 +1,5 @@
 import React from 'react';
+import { useContext } from 'react';
 import {
   FaBook,
   FaQuestionCircle,
@@ -7,6 +8,7 @@ import {
   FaUserFriends,
 } from "react-icons/fa";
 import { useLoaderData } from 'react-router-dom';
+import { ContextDetails } from '../../Context/ContextProvide';
 import LeftSide from '../LeftSide/LeftSide';
 
 const CourseDetails = () => {
@@ -24,11 +26,7 @@ const CourseDetails = () => {
    } = fullDetails;
 
 
-   const addToCart = (e)=>{
-    console.log(e.target.innerText);
-    e.target.innerText = 'View Cart'
-    
-   }
+   const {addToCart} = useContext(ContextDetails)
 
 
 
@@ -37,7 +35,9 @@ const CourseDetails = () => {
    return (
      <section className="">
        <div className="course-cotainer mb-20">
-         <h1 className="text-white font-bold text-4xl">{name}</h1>
+         <h1 className="text-white font-bold text-4xl flex h-full justify-center items-center">
+           {name}
+         </h1>
        </div>
        <div className="flex sm:flex-col xl:flex-row items-start justify-around w-5/6 m-auto">
          <div className="">

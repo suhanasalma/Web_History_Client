@@ -21,7 +21,7 @@ const LeftSide = () => {
        .then((data) => setLinks(data));
    }, []);
    return (
-     <div className="mt-10 ">
+     <div className="my-10 ">
        <div className="border w-10/12 sm:m-auto lg:m-0 p-5">
          <h1>Course Categories</h1>
          {links.map((link) => (

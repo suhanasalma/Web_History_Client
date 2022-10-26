@@ -1,8 +1,12 @@
 import React from 'react';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { ContextDetails } from '../../Context/ContextProvide';
 
 const CourseDisplay = ({course}) => {
-   const {name,img,id,price} = course
+   const {name,img,id,price} = course;
+   const { addToCart } = useContext(ContextDetails);
+   
 
    return (
      <div>
@@ -15,7 +19,7 @@ const CourseDisplay = ({course}) => {
            </div>
            <div className="flex justify-between p-5">
              <p>{price}$</p>
-             <p>Add to Cart</p>
+             <p onClick={addToCart}>Add to Cart</p>
              <Link to={`/course-details/${id}`}>
                <p>See Details</p>
              </Link>
