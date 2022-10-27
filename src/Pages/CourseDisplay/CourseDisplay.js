@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { addToCart } from '../../LocalStorage/LocalStorage';
 
 const CourseDisplay = ({course}) => {
-   const { name, img, id, price, course_desc } = course; 
+   const { name, img, id, price } = course; 
 
    const addTolS = (id)=>{
         addToCart(id)

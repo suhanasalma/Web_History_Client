@@ -55,7 +55,7 @@ const Carts = () => {
             <p className="flex justify-between font-semibold text-xl border p-3">
               Total <span> {total}$</span>
             </p>
-            <button className="border w-full p-3 mt-5 font-semibold bg-slate-300 hover:bg-slate-200">
+            <button className="border w-full p-3 mt-5 font-semibold bg-black text-white hover:text-black hover:bg-slate-200">
               Proceed To CheckOut
             </button>
           </div>

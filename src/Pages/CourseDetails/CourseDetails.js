@@ -42,27 +42,35 @@ const CourseDetails = () => {
 
    return (
      <section className="">
-       <div className="course-cotainer mb-20">
+       <div className="course-cotainer mb-10">
          <h1 className="text-white font-bold text-4xl flex h-full justify-center items-center">
            {name}
          </h1>
        </div>
 
        <PDFExport ref={pdfExportComponent} paperSize="A4">
-         <div className=" text-center	mb-10">
+         <div className=" flex justify-around w-9/12 sm:m-auto md:mb-20 items-center sm:flex-col md:flex-row  ">
            <button
-             className="bg-amber-400 p-5 border-none hover:bg-red-500	text-red-500 hover:text-amber-400 font-bold rounded-lg text-lg"
+             className="bg-black sm:mb-10 md:m-0  p-5 border-none hover:bg-slate-200	text-white hover:text-black font-bold rounded-lg text-lg"
              onClick={handleExportWithComponent}
              primary={true}
            >
              Download PDF
            </button>
+           <Link to="/carts">
+             <button
+               className="bg-black sm:mb-10 md:m-0 p-5 border-none hover:bg-slate-200	text-white hover:text-black font-bold rounded-lg text-lg"
+               onClick={addToLS}
+             >
+               Get Premium Access
+             </button>
+           </Link>
          </div>
          <div className="flex sm:flex-col xl:flex-row items-center justify-around w-5/6 m-auto">
            <div className="">
              <section className="">
                <article className="flex justify-between items-center mb-10 ">
-                 <div className="flex sm:flex-col lg:flex-row items-center gap-10">
+                 <div className="flex  items-center gap-10">
                    <div className="flex items-center gap-3">
                      <img
                        src={teacher_info[0].teacher_img}
@@ -84,14 +92,14 @@ const CourseDetails = () => {
 
                  <div className="flex sm:flex-col md:flex-row items-center gap-4">
                    <p className="price text-3xl font-bold">{price}$</p>
-                   <Link to='/carts'>
+                   {/* <Link to='/carts'>
                      <button
                        className="bg-amber-500 px-4 py-2 border-none rounded-lg font-bold hover:bg-amber-100"
                        onClick={addToLS}
                      >
                        Get Premium Access
                      </button>
-                   </Link>
+                   </Link> */}
                  </div>
                </article>
                <article className="mb-10">
