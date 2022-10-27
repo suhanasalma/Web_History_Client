@@ -26,7 +26,7 @@ const ContextProvide = ({ children }) => {
    const [user,setUser] = useState('salma')
 
    useEffect(()=>{
-      const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      const unsubscribe = onAuthStateChanged(auth, currentUser => {
         setUser(currentUser);
         console.log(user);
       });
