@@ -1,10 +1,23 @@
 import React from 'react';
+import { useContext } from 'react';
 import {FaEnvelope, FaPhoneAlt} from "react-icons/fa";
 import { Link, NavLink } from 'react-router-dom';
+import { ContextDetails } from '../../../Context/ContextProvide';
 import './Header.css'
 
 
 const Header = () => {
+  const { user, logOut } = useContext(ContextDetails);
+
+  const signOut=() => {
+    // console.log("done");
+    logOut()
+    .then(() => {
+        console.log("done");
+    }).catch((error) => {
+      // An error happened.
+    });
+  }
    return (
      <div>
        <section className="up-header ">
@@ -30,16 +43,20 @@ const Header = () => {
                <p className="sm:hidden lg:flex">suhanasalma800@gmail.com</p>
              </div>
            </div>
-           <div className="sm:flex sm:flex-col md:flex-row">
-             <NavLink
-               to="/register"
-               className={`mr-5 ({ isActive }) =>
+           {user?.uid ? (
+             <p onClick={signOut}>Log Out</p>
+           ) : (
+             <div className="sm:flex sm:flex-col md:flex-row">
+               <NavLink
+                 to="/register"
+                 className={`mr-5 ({ isActive }) =>
                isActive ? activeClassName : undefined`}
-             >
-               Register
-             </NavLink>
-             <NavLink to="/login">Log In</NavLink>
-           </div>
+               >
+                 Register
+               </NavLink>
+               <NavLink to="/login">Log In</NavLink>
+             </div>
+           )}
          </article>
        </section>
        <section className="">

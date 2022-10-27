@@ -1,12 +1,78 @@
 import React from 'react';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { ContextDetails } from '../../Context/ContextProvide';
+
 
 const Register = () => {
+   const { createUser, googleSignIn, faceBookSignIn, gitLogIn ,user} =
+     useContext(ContextDetails);
+   const register = (e)=>{
+    e.preventDefault()
+    const form = e.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(name,email,password)
+    createUserEmailPass(email,name)
+    form.reset();
+   }
+
+   const createUserEmailPass = (email, password) => {
+    createUser(email,password)
+    .then(result=>{
+      const user = result.user;
+      console.log(user)
+      
+    })
+    .catch(error=>{
+      console.log(error)
+    })
+
+   };
+
+
+   const signInGoogle = ()=>{
+    googleSignIn()
+    .then(result=>{
+      const user = result.user
+      console.log(user)
+    })
+    .catch(error=>{
+      console.error(error)
+    })
+   }
+
+   const signInFaceBook = ()=>{
+     faceBookSignIn()
+       .then((result) => {
+         const user = result.user;
+         console.log(user);
+       })
+       .catch((error) => {
+         console.error(error);
+       });
+   }
+
+   const gitSingIn = ()=>{
+    gitLogIn()
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+   }
    return (
      <div>
        <div className="course-cotainer">
          <h1 className="text-white flex h-full justify-center items-center font-bold text-4xl">
-           Be a Member or Already a Member?
+           {user?.uid ? (
+             <h1>Welcome {user.uid}</h1>
+           ) : (
+             <h1>Be a Member or Already a Member?</h1>
+           )}
          </h1>
        </div>
        <div className="hero min-h-screen bg-base-300">
@@ -17,7 +83,10 @@ const Register = () => {
                Already a Member? <Link to="/login"> Log In</Link>
              </p>
            </div>
-           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+           <form
+             onSubmit={register}
+             className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100"
+           >
              <div className="card-body">
                <div className="form-control">
                  <label className="label">
@@ -57,6 +126,7 @@ const Register = () => {
                    <span className="label-text">Password</span>
                  </label>
                  <input
+                   name="password"
                    type="text"
                    placeholder="password"
                    className="input input-bordered"
@@ -68,10 +138,30 @@ const Register = () => {
                  </label>
                </div>
                <div className="form-control mt-6">
-                 <button className="btn btn-primary">Register</button>
+                 <button
+                   //  onClick={createUserEmailPass}
+                   className="btn btn-primary"
+                 >
+                   Register
+                 </button>
+               </div>
+               <div className="form-control mt-6">
+                 <button onClick={signInGoogle} className="btn btn-primary">
+                   Google Login
+                 </button>
+               </div>
+               <div className="form-control mt-6">
+                 <button onClick={gitSingIn} className="btn btn-primary">
+                   Github Login
+                 </button>
+               </div>
+               <div className="form-control mt-6">
+                 <button onClick={signInFaceBook} className="btn btn-primary">
+                   Facebook Login
+                 </button>
                </div>
              </div>
-           </div>
+           </form>
          </div>
        </div>
      </div>
