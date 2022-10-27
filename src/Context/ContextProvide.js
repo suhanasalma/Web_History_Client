@@ -3,6 +3,7 @@ import React , { createContext } from 'react';
 import {
   getAuth,
   GoogleAuthProvider,
+  FacebookAuthProvider,
   signInWithPopup,
   onAuthStateChanged,
   createUserWithEmailAndPassword,
@@ -12,7 +13,7 @@ import {
   updateProfile,
   sendEmailVerification,
   sendPasswordResetEmail,
-  updateEmail,
+
 } from "firebase/auth";
 import app from '../Firebase/Firebase.init';
 import { useState } from 'react';
@@ -47,6 +48,8 @@ const ContextProvide = ({ children }) => {
 
    const googleProvider = new GoogleAuthProvider();
    const gitProvider = new GithubAuthProvider();
+    const facebookProvider = new FacebookAuthProvider();
+
 
    const googleSignIn = ()=>{
     setLoading(true);
@@ -60,7 +63,9 @@ const ContextProvide = ({ children }) => {
      return signInWithPopup(auth, gitProvider);
    };
 
-
+   const faceBookSignIn = () => {
+     return signInWithPopup(auth, facebookProvider);
+   };
 
    const signInEmailPass = (email, password) => {
     setLoading(true);
@@ -103,7 +108,7 @@ const ContextProvide = ({ children }) => {
      verifyEmail,
      passwordReset,
      loading,
-   
+     faceBookSignIn,
    };
 
   return <div>

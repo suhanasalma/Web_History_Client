@@ -45,7 +45,9 @@ const Header = () => {
            </div>
            {user?.uid ? (
              <div className="sm:flex sm:flex-col md:flex-row gap-4">
-               <button onClick={signOut}>Log Out</button>
+               <Link to='/'>
+                 <button onClick={signOut}>Log Out</button>
+               </Link>
                <Link to="/account">
                  <div
                    className="tooltip tooltip-bottom"

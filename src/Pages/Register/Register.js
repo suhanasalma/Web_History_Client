@@ -105,6 +105,7 @@ const Register = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
+        alert("check inbox to verify email");
       })
       .catch((error) => {
         console.error(error);
@@ -199,7 +200,11 @@ const Register = () => {
                    Github Login
                  </button>
                </div>
-               
+               <div className="form-control mt-6">
+                 <button onClick={signInFaceBook} className="btn btn-primary">
+                   Facebook Login
+                 </button>
+               </div>
              </div>
            </form>
          </div>
