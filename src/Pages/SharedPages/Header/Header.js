@@ -22,7 +22,7 @@ const Header = () => {
      <div>
        <section className="up-header ">
          <article className="flex justify-between items-center  w-9/12 m-auto p-2 ">
-           <div className="flex items-center sm:flex-col md:flex-row">
+           <div className="flex items-center sm:flex-col gap-3 md:flex-row">
              <p>Have any question?</p>
              <div className="flex items-center ml-5">
                <p
@@ -44,8 +44,8 @@ const Header = () => {
              </div>
            </div>
            {user?.uid ? (
-             <div className="sm:flex sm:flex-col md:flex-row gap-4">
-               <Link to='/'>
+             <div className="sm:flex sm:flex-col md:flex-row items-center gap-4">
+               <Link to="/">
                  <button onClick={signOut}>Log Out</button>
                </Link>
                <Link to="/account">
