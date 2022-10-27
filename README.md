@@ -1,3 +1,33 @@
+### Project Name : 
+** Web History
+
+
+### Framworks used such as : 
+Tailwind and 
+Daisy ui
+
+
+### Product Feature : 
+** This is a full stack Website 
+** Here we have dynamic cart section
+** Dynamic Route pages
+** Dynamic My Account pages
+** I tried to maintain the color combination so its soothing
+** and i kept everything simple so its user friendly
+
+## Client side view: (https://web-history-bbb20.web.app/register)
+
+## Server side links:
+
+### All Course Category: (https://web-history-server-side.vercel.app/categories)
+
+### All Courses : (https://web-history-server-side.vercel.app/allCourse)
+
+### All Blogs : (https://web-history-server-side.vercel.app/blogs)
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
