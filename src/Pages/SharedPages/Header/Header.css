@@ -6,3 +6,7 @@
 .edu-hat{
    color: var(--text-yellow);
 }
+
+.active{
+   color: blue;
+}

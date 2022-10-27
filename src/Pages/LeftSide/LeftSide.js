@@ -23,23 +23,23 @@ const LeftSide = () => {
    return (
      <div className="my-10 ">
        <div className="border w-10/12 sm:m-auto lg:m-0 p-5">
-         <h1>Course Categories</h1>
+         <h1 className="font-semibold mb-3">Course Categories</h1>
          {links.map((link) => (
            <Link key={link.id} to={`/courses/${link.id}`}>
-             <li>{link.name}</li>
+             <li className="hover:text-rose-700">{link.name}</li>
            </Link>
          ))}
        </div>
        <div className="my-10">
          <div className=" border sm:m-auto lg:m-0 w-10/12 p-5">
-           <h1>Latest Course</h1>
+           <h1 className="font-semibold mb-3">Latest Course</h1>
            {courses.map((course) => (
              <Link key={course.id} to={`/course-details/${course.id}`}>
-               <div className="flex gap-4 mb-3">
+               <div className="flex gap-4 mb-3 hover:text-rose-700">
                  <img src={course.img} className="w-20 object-cover " alt="" />
-                 <div className=''>
+                 <div className="">
                    <p>{course.name}</p>
-                   <p>{course.price}</p>
+                   <p>{course.price}$</p>
                  </div>
                </div>
              </Link>
@@ -50,16 +50,16 @@ const LeftSide = () => {
          <h1 className="text-2xl font-semibold mb-3">Stay Connected With US</h1>
          <div className="">
            <Link className="">
-             <FaFacebook className="text-4xl text-center mb-3 " />
+             <FaFacebook className="text-4xl text-center mb-3 hover:text-blue-500" />
            </Link>
            <Link>
-             <FaTwitter className="text-4xl mb-3" />
+             <FaTwitter className="text-4xl mb-3 hover:text-blue-500" />
            </Link>
            <Link>
-             <FaInstagram className="text-4xl mb-3" />
+             <FaInstagram className="text-4xl mb-3 hover:text-red-500" />
            </Link>
            <Link>
-             <FaLinkedin className="text-4xl" />
+             <FaLinkedin className="text-4xl hover:text-blue-500" />
            </Link>
          </div>
        </div>

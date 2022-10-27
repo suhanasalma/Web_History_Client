@@ -17,17 +17,17 @@ const BlogDetails = () => {
        </div>
        <section className="flex sm:flex-col lg:flex-row items-start justify-around">
          <div className="mb-20 w-11/12  m-auto lg:mx-10">
-           <div className=' text-center p-3 flex justify-between items-center border'>
+           <div className=" text-center p-3 flex justify-between items-center border">
              <div className="">
-               <p>Posted By</p>
+               <p className="font-bold">Posted By</p>
                <p>{author_info[0].teacher_name}</p>
              </div>
              <div>
-               <p>Categories</p>
+               <p className="font-bold">Categories</p>
                <p>{category_name}</p>
              </div>
              <div>
-               <p>Published Date</p>
+               <p className="font-bold">Published Date</p>
                <p>{date}</p>
              </div>
            </div>
@@ -82,7 +82,7 @@ const BlogDetails = () => {
              in their exact original form, accompanied by English versions from
              the 1914 translation by H. Rackham.
            </p>
-           <div className="border p-10 w-9/12 m-auto text-center">
+           <div className="border p-10 sm:w-full w-9/12 m-auto text-center">
              <div className="">
                <img
                  src={author_info[0].teacher_img}
@@ -91,7 +91,7 @@ const BlogDetails = () => {
                />
              </div>
              <div className="">
-               <h1>{author_info[0].teacher_name}</h1>
+               <h1 className="my-5 font-bold">{author_info[0].teacher_name}</h1>
                <p className="">{author_info[0].author_details}</p>
              </div>
            </div>

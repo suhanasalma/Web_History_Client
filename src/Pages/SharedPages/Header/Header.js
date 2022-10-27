@@ -44,23 +44,37 @@ const Header = () => {
              </div>
            </div>
            {user?.uid ? (
-             <p onClick={signOut}>Log Out</p>
+             <div className="sm:flex sm:flex-col md:flex-row gap-4">
+               <button onClick={signOut}>Log Out</button>
+               <Link to="/account">
+                 <div
+                   className="tooltip tooltip-bottom"
+                   data-tip={user?.displayName}
+                 >
+                   <img
+                     className="w-10 h-10 rounded-full"
+                     src={user?.photoURL}
+                     alt=""
+                   />
+                 </div>
+               </Link>
+             </div>
            ) : (
              <div className="sm:flex sm:flex-col md:flex-row">
-               <NavLink
+               <Link
                  to="/register"
                  className={`mr-5 ({ isActive }) =>
                isActive ? activeClassName : undefined`}
                >
                  Register
-               </NavLink>
-               <NavLink to="/login">Log In</NavLink>
+               </Link>
+               <Link to="/login">Log In</Link>
              </div>
            )}
          </article>
        </section>
        <section className="">
-         <div className="navbar w-11/12 m-auto">
+         <div className="navbar w-11/12 m-auto ">
            <div className="navbar-start">
              <div className="dropdown">
                <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -84,16 +98,25 @@ const Header = () => {
                  className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
                >
                  <li>
+                   <Link to="/home">Home</Link>
+                 </li>
+                 <li>
                    <Link to="/faq">FAQ</Link>
                  </li>
                  <li>
                    <Link to="/allCourse">Courses</Link>
                  </li>
                  <li>
-                   <Link to="/blogs">BLOG</Link>
+                   <Link to="/blogs">Blogs</Link>
                  </li>
                  <li>
-                   <Link to="/carts">Cart</Link>
+                   <Link
+                     className={`({ isActive }) =>
+                     isActive ? text-rose-700 : undefined`}
+                     to="/carts"
+                   >
+                     Cart
+                   </Link>
                  </li>
                </ul>
              </div>
@@ -117,17 +140,19 @@ const Header = () => {
            </div>
            <div className="navbar-center hidden lg:flex">
              <ul className="menu menu-horizontal p-0">
-               <li>
+               <li className="font-bold text-xl">
+                 <Link to="/home">Home</Link>
+               </li>
+               <li className="font-bold text-xl">
                  <Link to="/allCourse">Courses</Link>
                </li>
-               <li>
+               <li className="font-bold text-xl">
                  <Link to="/faq">FAQ</Link>
                </li>
-
-               <li>
-                 <Link to="/blogs">BLOG</Link>
+               <li className="font-bold text-xl">
+                 <Link to="/blogs">Blogs</Link>
                </li>
-               <li>
+               <li className="font-bold text-xl">
                  <Link to="/carts">Cart</Link>
                </li>
              </ul>

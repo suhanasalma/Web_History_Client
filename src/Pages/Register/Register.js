@@ -1,35 +1,80 @@
 import React from 'react';
+import { useState } from 'react';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { ContextDetails } from '../../Context/ContextProvide';
 
 
 const Register = () => {
-   const { createUser, googleSignIn, faceBookSignIn, gitLogIn ,user} =
-     useContext(ContextDetails);
+  const [passwordError, setPassWordError] = useState()
+
+
+
+   const {
+     createUser,
+     googleSignIn,
+     faceBookSignIn,
+     gitLogIn,
+     user,
+     updateInfo,
+     verifyEmail,
+   } = useContext(ContextDetails);
+
+
+
+
+
+
+
    const register = (e)=>{
     e.preventDefault()
     const form = e.target;
     const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(name,email,password)
-    createUserEmailPass(email,name)
-    form.reset();
+    const photo  = form.photo.value
+
+    if (!/(?=.*[A-Z].*[A-Z])/.test(password)) {
+      setPassWordError("Please Provide minimum two uppercase word");
+      return;
+    }
+    if (!/(?=.[0-9])/.test(password)) {
+      setPassWordError("please provide minimum one letter");
+      return;
+    }
+    if (!/(?=.*[!@#$&*])/.test(password)) {
+      setPassWordError("plase provide minimum one special cherecter");
+      return;
+    }
+    setPassWordError("");
+    createUserEmailPass(email, password,name, photo);
+    
+    
    }
 
-   const createUserEmailPass = (email, password) => {
+   const createUserEmailPass = (email, password,name,photo) => {
     createUser(email,password)
     .then(result=>{
       const user = result.user;
+      userInfoUpdate(name, photo);
       console.log(user)
+       verifyEmail().then(() => {});
+       alert('check inbox to verify email')
       
     })
     .catch(error=>{
       console.log(error)
+      setPassWordError(error.message)
     })
 
    };
+
+   const userInfoUpdate = (name,photo) =>{
+    const profile = { displayName: name,photoURL:photo}
+    updateInfo(profile)
+      .then(() => {})
+      .catch((error) => {});
+   }
 
 
    const signInGoogle = ()=>{
@@ -64,12 +109,13 @@ const Register = () => {
         console.error(error);
       });
    }
+
    return (
      <div>
        <div className="course-cotainer">
          <h1 className="text-white flex h-full justify-center items-center font-bold text-4xl">
            {user?.uid ? (
-             <h1>Welcome {user.uid}</h1>
+             <h1>Welcome {user?.displayName}</h1>
            ) : (
              <h1>Be a Member or Already a Member?</h1>
            )}
@@ -80,7 +126,10 @@ const Register = () => {
            <div className="text-center lg:text-left">
              <h1 className="text-5xl font-bold">Register now!</h1>
              <p className="py-6">
-               Already a Member? <Link to="/login"> Log In</Link>
+               Already a Member?{" "}
+               <Link className="text-rose-600 font-bold" to="/login">
+                 Log In
+               </Link>
              </p>
            </div>
            <form
@@ -96,6 +145,7 @@ const Register = () => {
                    name="name"
                    type="text"
                    placeholder="name"
+                   required
                    className="input input-bordered"
                  />
                </div>
@@ -117,6 +167,7 @@ const Register = () => {
                  <input
                    name="email"
                    type="email"
+                   required
                    placeholder="email"
                    className="input input-bordered"
                  />
@@ -129,21 +180,13 @@ const Register = () => {
                    name="password"
                    type="password"
                    placeholder="password"
+                   required
                    className="input input-bordered"
                  />
-                 <label className="label">
-                   <a href="#" className="label-text-alt link link-hover">
-                     Forgot password?
-                   </a>
-                 </label>
                </div>
+               <p className="text-red-500">{passwordError}</p>
                <div className="form-control mt-6">
-                 <button
-                   //  onClick={createUserEmailPass}
-                   className="btn btn-primary"
-                 >
-                   Register
-                 </button>
+                 <button className="btn btn-primary"> Register </button>
                </div>
                <div className="form-control mt-6">
                  <button onClick={signInGoogle} className="btn btn-primary">
@@ -155,11 +198,7 @@ const Register = () => {
                    Github Login
                  </button>
                </div>
-               <div className="form-control mt-6">
-                 <button onClick={signInFaceBook} className="btn btn-primary">
-                   Facebook Login
-                 </button>
-               </div>
+               
              </div>
            </form>
          </div>

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { addToCart } from '../../LocalStorage/LocalStorage';
 
 const CourseDisplay = ({course}) => {
-   const {name,img,id,price} = course; 
+   const { name, img, id, price, course_desc } = course; 
 
    const addTolS = (id)=>{
         addToCart(id)
@@ -15,18 +15,29 @@ const CourseDisplay = ({course}) => {
 
    return (
      <div>
-       <div className="card w-64 h-96 bg-base-100 shadow-xl">
-         <figure>
-           <img src={img} />
-         </figure>
-         <div className="card-body">
-           <h2 className="card-title text-center">{name}</h2>
-         </div>
-         <div className="flex justify-between p-5">
-           <p>{price}$</p>
-           <p onClick={()=>addTolS(id)}>Add to Cart</p>
+       <div className="card w-64 h-96 bg-base-100 shadow-xl ">
+         <Link to={`/course-details/${id}`}>
+           <figure>
+             <img src={img} />
+           </figure>
+           <div className="card-body">
+             <h2 className="card-title text-center">{name}</h2>
+           </div>
+         </Link>
+         <div className="flex justify-between border p-5 absolute bottom-0 right-0 w-full">
+           <p className="text-rose-400 hover:text-rose-600 font-bold">
+             {price}$
+           </p>
+           <button
+             className="text-rose-400 hover:text-rose-600 font-bold"
+             onClick={() => addTolS(id)}
+           >
+             Add to Cart
+           </button>
            <Link to={`/course-details/${id}`}>
-             <p>See Details</p>
+             <button className="text-rose-400 hover:text-rose-600 font-bold">
+               See Details
+             </button>
            </Link>
          </div>
        </div>

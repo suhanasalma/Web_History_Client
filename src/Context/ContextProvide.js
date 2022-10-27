@@ -4,12 +4,14 @@ import {
   getAuth,
   GoogleAuthProvider,
   signInWithPopup,
-  FacebookAuthProvider,
   onAuthStateChanged,
   createUserWithEmailAndPassword,
   signOut,
   signInWithEmailAndPassword,
   GithubAuthProvider,
+  updateProfile,
+  sendEmailVerification,
+  sendPasswordResetEmail,
 } from "firebase/auth";
 import app from '../Firebase/Firebase.init';
 import { useState } from 'react';
@@ -24,11 +26,16 @@ const auth = getAuth(app)
 const ContextProvide = ({ children }) => {
 
    const [user,setUser] = useState('salma')
+      const [loading, setLoading] = useState(true);
+
 
    useEffect(()=>{
       const unsubscribe = onAuthStateChanged(auth, currentUser => {
-        setUser(currentUser);
-        console.log(user);
+        if (currentUser === null || currentUser.emailVerified) {
+          setUser(currentUser);
+        }
+        setLoading(false);
+        // console.log(user);
       });
 
       return () => {
@@ -38,45 +45,67 @@ const ContextProvide = ({ children }) => {
 
 
    const googleProvider = new GoogleAuthProvider();
-   const facebookProvider = new FacebookAuthProvider();
    const gitProvider = new GithubAuthProvider();
 
    const googleSignIn = ()=>{
+    setLoading(true);
 
       return signInWithPopup(auth, googleProvider)
 
    }
 
-   const faceBookSignIn = ()=>{
-      return signInWithPopup(auth, facebookProvider)
-   }
+   const gitLogIn = () => {
+    setLoading(true);
+     return signInWithPopup(auth, gitProvider);
+   };
+
+
 
    const signInEmailPass = (email, password) => {
+    setLoading(true);
      return signInWithEmailAndPassword(auth, email, password);
    };
 
    const logOut = ()=>{
+    setLoading(true);
       return signOut(auth)
         
    }
 
    const createUser = (email, password) => {
+    setLoading(true);
      return createUserWithEmailAndPassword(auth, email, password);
    };
 
-   const gitLogIn =()=>{
-      return signInWithPopup(auth, gitProvider);
+   const updateInfo = (profile) =>{
+    return updateProfile(auth.currentUser,profile)
    }
+
+   const verifyEmail = () =>{
+    return sendEmailVerification(auth.currentUser)
+
+   }
+
+   const passwordReset = (email) =>{
+    return sendPasswordResetEmail(auth, email);
+
+
+   }
+
+   
 
  
    const allInfo = {
      user,
      googleSignIn,
-     faceBookSignIn,
      logOut,
      createUser,
      signInEmailPass,
      gitLogIn,
+     updateInfo,
+     verifyEmail,
+     passwordReset,
+     loading,
    };
 
   return <div>

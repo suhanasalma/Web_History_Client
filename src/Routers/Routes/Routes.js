@@ -9,8 +9,11 @@ import Courses from "../../Pages/Courses/Courses";
 import Faq from "../../Pages/FAQ/Faq";
 import Home from "../../Pages/Home/Home";
 import Login from "../../Pages/Login/Login";
+import MyAccount from "../../Pages/MyAccount/MyAccount";
+import NotFound from "../../Pages/NotFoundPage/NotFound";
 import Register from "../../Pages/Register/Register";
 import SwiperSlider from "../../Pages/Swiper/SwiperSlider";
+import PrivateRoute from "../PrivateRouter/PrivateRouter";
 
 const { createBrowserRouter } = require("react-router-dom");
 
@@ -23,7 +26,13 @@ export const router = createBrowserRouter([
         path: "/",
         loader: () =>
           fetch("https://web-history-server-side.vercel.app/categories"),
-        element: <Home></Home>,
+        element: <Home />,
+      },
+      {
+        path: "/home",
+        loader: () =>
+          fetch("https://web-history-server-side.vercel.app/categories"),
+        element: <Home />,
       },
       {
         path: "/allCourse",
@@ -43,7 +52,11 @@ export const router = createBrowserRouter([
         path: "/carts",
         loader: () =>
           fetch("https://web-history-server-side.vercel.app/allCourse"),
-        element: <Carts />,
+        element: (
+          <PrivateRoute>
+            <Carts />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/courses/:id",
@@ -59,7 +72,7 @@ export const router = createBrowserRouter([
           fetch(
             `https://web-history-server-side.vercel.app/course-details/${params.id}`
           ),
-        element: <CourseDetails></CourseDetails>,
+        element: <CourseDetails />,
       },
       {
         path: "/blogs",
@@ -72,7 +85,7 @@ export const router = createBrowserRouter([
           fetch(
             `https://web-history-server-side.vercel.app/blogs/${params.id}`
           ),
-        element: <BlogDetails/>,
+        element: <BlogDetails />,
       },
       {
         path: "/faq",
@@ -84,6 +97,15 @@ export const router = createBrowserRouter([
           fetch("https://web-history-server-side.vercel.app/categories"),
         element: <SwiperSlider />,
       },
+      {
+        path: "/account",
+
+        element: <MyAccount />,
+      },
     ],
+  },
+  {
+    path: "*",
+    element: <NotFound />,
   },
 ]);
