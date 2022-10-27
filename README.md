@@ -7,13 +7,13 @@
 ** Daisy ui
 
 
-###Product Feature : 
-**This is a full stack Website 
-**Here we have dynamic cart section
-**Dynamic Route pages
-**Dynamic My Account pages
-**I tried to maintain the color combination so its soothing
-**and i kept everything simple so its user friendly
+### Product Feature : 
+** This is a full stack Website 
+** Here we have dynamic cart section
+** Dynamic Route pages
+** Dynamic My Account pages
+** I tried to maintain the color combination so its soothing
+** and i kept everything simple so its user friendly
 
 ## Client side view: (https://web-history-bbb20.web.app/register)
 
