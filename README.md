@@ -3,8 +3,8 @@
 
 
 ### Framworks used such as : 
-** Tailwind and 
-** Daisy ui
+Tailwind and 
+Daisy ui
 
 
 ### Product Feature : 
