@@ -24,7 +24,7 @@ const CourseDisplay = ({course}) => {
              <h2 className="card-title text-center">{name}</h2>
            </div>
          </Link>
-         <div className="flex justify-between border p-5 absolute bottom-0 right-0 w-full">
+         <div className="flex justify-between items-center border p-5 absolute bottom-0 right-0 w-full">
            <p className="text-rose-400 hover:text-rose-600 font-bold">
              {price}$
            </p>

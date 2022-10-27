@@ -48,6 +48,7 @@ const Register = () => {
     }
     setPassWordError("");
     createUserEmailPass(email, password,name, photo);
+    form.reset()
     
     
    }

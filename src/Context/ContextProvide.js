@@ -12,6 +12,7 @@ import {
   updateProfile,
   sendEmailVerification,
   sendPasswordResetEmail,
+  updateEmail,
 } from "firebase/auth";
 import app from '../Firebase/Firebase.init';
 import { useState } from 'react';
@@ -88,11 +89,7 @@ const ContextProvide = ({ children }) => {
 
    const passwordReset = (email) =>{
     return sendPasswordResetEmail(auth, email);
-
-
    }
-
-   
 
  
    const allInfo = {
@@ -106,6 +103,7 @@ const ContextProvide = ({ children }) => {
      verifyEmail,
      passwordReset,
      loading,
+   
    };
 
   return <div>

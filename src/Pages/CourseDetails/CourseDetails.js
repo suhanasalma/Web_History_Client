@@ -89,7 +89,7 @@ const CourseDetails = () => {
                        className="bg-amber-500 px-4 py-2 border-none rounded-lg font-bold hover:bg-amber-100"
                        onClick={addToLS}
                      >
-                       Add to Cart
+                       Get Premium Access
                      </button>
                    </Link>
                  </div>
