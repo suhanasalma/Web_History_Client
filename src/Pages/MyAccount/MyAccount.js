@@ -1,9 +1,10 @@
 import React from 'react';
 import { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { ContextDetails } from '../../Context/ContextProvide';
 
 const MyAccount = () => {
-   const { user, updateInfo, } = useContext(ContextDetails);
+   const { user, updateInfo, passwordReset } = useContext(ContextDetails);
 
    const updateInformation = (e)=>{
       e.preventDefault();
@@ -21,6 +22,14 @@ const MyAccount = () => {
 
 
    }
+
+   const changePassword = () => {
+     passwordReset(user?.email)
+       .then(() => {
+         alert("please check your Email to reset password");
+       })
+       .catch((error) => {});
+   };
 
 
    return (
@@ -40,7 +49,12 @@ const MyAccount = () => {
            <p className="my-5 font-semibold">
              Email ID: <span className="text-red-500">{user?.email}</span>
            </p>
-           <img src={user?.photoURL} className="lg:w-96 " alt=" No img" />
+           <img src={user?.photoURL} className="lg:w-96" alt=" No img" />
+           <Link onClick={changePassword}>
+             <p className="my-10 text-white border text-center bg-black p-2 text-lg font-semibold">
+               Reset Password
+             </p>
+           </Link>
          </section>
          <section className="flex justify-center mt-10">
            <form
@@ -76,8 +90,8 @@ const MyAccount = () => {
                    <span className="label-text">Email</span>
                  </label>
                  <input
-                  readOnly
-                  name="email"
+                   readOnly
+                   name="email"
                    type="email"
                    required
                    defaultValue={user?.email}
