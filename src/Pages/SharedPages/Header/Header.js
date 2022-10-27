@@ -62,7 +62,7 @@ const Header = () => {
                </Link>
              </div>
            ) : (
-             <div className="sm:flex sm:flex-col md:flex-row">
+             <div className="sm:flex gap-5 sm:flex-col md:flex-row">
                <Link
                  to="/register"
                  className={`mr-5 ({ isActive }) =>

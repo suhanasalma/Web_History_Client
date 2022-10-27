@@ -49,7 +49,7 @@ const MyAccount = () => {
            <p className="my-5 font-semibold">
              Email ID: <span className="text-red-500">{user?.email}</span>
            </p>
-           <img src={user?.photoURL} className="lg:w-96" alt=" No img" />
+           <img src={user?.photoURL} className="w-96" alt=" No img" />
            <Link onClick={changePassword}>
              <p className="my-10 text-white border text-center bg-black p-2 text-lg font-semibold">
                Reset Password
