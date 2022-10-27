@@ -1,10 +1,10 @@
 ### Project Name : 
-**Web History
+** Web History
 
 
-###Framworks used such as : 
-**Tailwind and 
-**Daisy ui
+### Framworks used such as : 
+** Tailwind and 
+** Daisy ui
 
 
 ###Product Feature : 
